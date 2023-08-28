@@ -39,7 +39,8 @@ fun SortDropDown(
             enabled = false,
             readOnly = true,
             colors = ExposedDropdownMenuDefaults.textFieldColors(),
-            modifier = Modifier.menuAnchor()
+            modifier = Modifier.menuAnchor(),
+            textStyle = MaterialTheme.typography.labelSmall
         )
         Row(
             modifier = Modifier.fillMaxSize(),

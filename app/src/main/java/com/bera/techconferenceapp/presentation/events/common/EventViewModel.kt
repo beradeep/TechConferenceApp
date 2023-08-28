@@ -108,7 +108,6 @@ class EventViewModel(
                     LIVE -> {
                         if (sortBy != liveEventState.sortBy) {
                             when (sortBy) {
-                                SortBy.NEAREST -> {}
                                 SortBy.LATEST -> {
                                     liveEventState =
                                         liveEventState.copy(eventList = liveEventState.eventList.sortedBy { it.dateTime })
@@ -131,7 +130,6 @@ class EventViewModel(
                     UPCOMING -> {
                         if (sortBy != upcomingEventState.sortBy) {
                             when (sortBy) {
-                                SortBy.NEAREST -> {}
                                 SortBy.LATEST -> {
                                     upcomingEventState =
                                         upcomingEventState.copy(eventList = upcomingEventState.eventList.sortedByDescending { it.dateTime })
@@ -154,7 +152,6 @@ class EventViewModel(
                     PAST -> {
                         if (sortBy != pastEventState.sortBy) {
                             when (sortBy) {
-                                SortBy.NEAREST -> {}
                                 SortBy.LATEST -> {
                                     pastEventState =
                                         pastEventState.copy(eventList = pastEventState.eventList.sortedBy { it.dateTime })
