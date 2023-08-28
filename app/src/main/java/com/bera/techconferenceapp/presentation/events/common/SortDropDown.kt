@@ -18,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,7 +48,11 @@ fun SortDropDown(
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = state.sortBy.name, style = MaterialTheme.typography.labelSmall)
+            Text(
+                text = state.sortBy.name,
+                overflow = TextOverflow.Ellipsis,
+                style = MaterialTheme.typography.labelSmall
+            )
             Icon(
                 modifier = Modifier.width(14.dp),
                 imageVector = if (state.isDropDownExpanded)
@@ -62,7 +67,13 @@ fun SortDropDown(
             onDismissRequest = { (viewModel::onDropDownClick)(false, eventType) }) {
             SortBy.values().forEach {
                 DropdownMenuItem(
-                    text = { Text(text = it.name) },
+                    text = {
+                        Text(
+                            text = it.name,
+                            overflow = TextOverflow.Ellipsis,
+                            style = MaterialTheme.typography.labelSmall
+                        )
+                    },
                     onClick = {
                         (viewModel::onSortByChange)(it, eventType)
                         (viewModel::onDropDownClick)(false, eventType)
