@@ -5,6 +5,7 @@ import com.bera.techconferenceapp.data.repository.EventRepositoryImpl
 import com.bera.techconferenceapp.domain.repository.EventRepository
 import com.bera.techconferenceapp.domain.usecases.GetEventsUseCase
 import com.bera.techconferenceapp.presentation.events.common.EventViewModel
+import com.bera.techconferenceapp.presentation.events.detail.EventDetailViewModel
 import com.bera.techconferenceapp.presentation.home.HomeViewModel
 import com.bera.techconferenceapp.utils.Constants.BASE_URL
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -36,5 +37,9 @@ val appModule = module {
 
     viewModel {
         HomeViewModel(get())
+    }
+
+    viewModel {
+        EventDetailViewModel()
     }
 }

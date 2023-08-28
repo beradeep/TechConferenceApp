@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -8,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.bera.techconferenceapp"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.bera.techconferenceapp"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -94,9 +92,10 @@ dependencies {
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
-    //Moshi
-    implementation("com.squareup.retrofit2:converter-moshi:2.4.0")
-
     //GSON converter
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Extended Material Icon Pack
+    implementation("androidx.compose.material:material-icons-extended:1.5.0")
+
 }

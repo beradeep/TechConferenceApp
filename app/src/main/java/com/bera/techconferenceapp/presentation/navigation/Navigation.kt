@@ -9,11 +9,14 @@ import com.bera.techconferenceapp.presentation.events.detail.EventDetailScreen
 import com.bera.techconferenceapp.presentation.home.HomeScreen
 
 @Composable
-fun Navigation() {
+fun Navigation(
+    isDarkMode: Boolean,
+    onModeToggle: () -> Unit
+) {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Routes.HomeScreen.route) {
         composable(route = Routes.HomeScreen.route) {
-            HomeScreen(navController)
+            HomeScreen(navController, isDarkMode, onModeToggle)
         }
         composable(route = Routes.EventDetailScreen.route) {
             val eventItem = navController.previousBackStackEntry?.savedStateHandle?.get<EventItem>("eventItem")
