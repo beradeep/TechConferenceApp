@@ -24,12 +24,13 @@ Install the lastest version from the releases section.
 
 ## Tech Stack
 
-<img alt='Android' src='https://developer.android.com/static/images/cluster-illustrations/kotlin-hero.svg' height='100px'><img alt='Jetpack Compose' src='https://3.bp.blogspot.com/-VVp3WvJvl84/X0Vu6EjYqDI/AAAAAAAAPjU/ZOMKiUlgfg8ok8DY8Hc-ocOvGdB0z86AgCLcBGAsYHQ/s1600/jetpack%2Bcompose%2Bicon_RGB.png' height='100px'>
+<a href='https://kotlinlang.org/docs/android-overview.html'><img alt='Android' src='https://developer.android.com/static/images/cluster-illustrations/kotlin-hero.svg' height='100px'>
+<a href='https://developer.android.com/jetpack/compose'><img alt='Jetpack Compose' src='https://3.bp.blogspot.com/-VVp3WvJvl84/X0Vu6EjYqDI/AAAAAAAAPjU/ZOMKiUlgfg8ok8DY8Hc-ocOvGdB0z86AgCLcBGAsYHQ/s1600/jetpack%2Bcompose%2Bicon_RGB.png' height='100px'>
 
 
 ## Contributing
 
-Projetc intended for GDSC JU recruitment, hence not accepting outside contributions right now :)
+Project intended for GDSC JU recruitment, hence not accepting outside contributions right now :)
 
-Higly appreciate leaving a :star: if you liked it!
+Highly appreciate leaving a :star: if you liked it!
 
