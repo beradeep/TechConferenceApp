@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.ImeAction
@@ -38,6 +39,7 @@ fun HomeScreen(navController: NavController, isDarkMode: Boolean, onModeToggle: 
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(Modifier.fillMaxSize()) {
 
+            val (height, width) = LocalConfiguration.current.run { screenHeightDp.dp to screenWidthDp.dp }
             val focusManager = LocalFocusManager.current
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -54,13 +56,14 @@ fun HomeScreen(navController: NavController, isDarkMode: Boolean, onModeToggle: 
                         )
                     },
                     modifier = Modifier
+                        .requiredWidth(width-100.dp)
                         .padding(top = 10.dp, start = 10.dp, bottom = 10.dp),
                     keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
                     keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
                     maxLines = 1
                 )
                 Box(modifier = Modifier
-                    .requiredWidth(100.dp),
+                    .padding(10.dp),
                     Alignment.Center
                 ) {
                         ThemeSwitcher(
