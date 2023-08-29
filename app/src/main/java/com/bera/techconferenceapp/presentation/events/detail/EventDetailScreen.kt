@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -30,12 +31,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.bera.techconferenceapp.domain.models.EventItem
 import org.koin.androidx.compose.koinViewModel
-import java.time.Duration
-import java.time.OffsetDateTime
 import java.time.ZoneId
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 
 @Composable
@@ -43,7 +39,6 @@ fun EventDetailScreen(
     eventItem: EventItem, viewModel: EventDetailViewModel = koinViewModel()
 ) {
     val context = LocalContext.current
-    val address = "${eventItem.venueName}, ${eventItem.venueCity}, ${eventItem.venueCountry}"
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -98,26 +93,28 @@ fun EventDetailScreen(
                 Spacer(modifier = Modifier.height(8.dp))
                 OutlinedButton(
                     onClick = {
-                        context.startActivity((viewModel::createMapIntent)(address))
+                        context.startActivity((viewModel::createMapIntent)(eventItem))
                     }) {
                     Text(text = "OPEN IN MAP", style = MaterialTheme.typography.labelLarge)
                 }
                 Spacer(modifier = Modifier.height(12.dp))
 
-                val formatter =
-                    DateTimeFormatter.ofPattern("MMM dd, uuuu hh:mm:ss a", Locale.ENGLISH)
-                val aDate = eventItem.dateTime.toOffsetDateTime().toString()
-                val formattedDate =
-                    OffsetDateTime.parse(aDate).atZoneSameInstant(ZoneId.systemDefault())
-                        .format(formatter)
+
                 Row(verticalAlignment = Alignment.Top) {
                     Text(
                         text = "Date & Time:   ", style = MaterialTheme.typography.titleMedium
                     )
                     Text(
-                        text = "$formattedDate\n${ZoneId.systemDefault()} Time",
+                        text = "${(viewModel::formattedDate)(eventItem.dateTime)}\n${ZoneId.systemDefault()} Time",
                         style = MaterialTheme.typography.bodyLarge
                     )
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Button(
+                    onClick = {
+                        context.startActivity((viewModel::createCalenderIntent)(eventItem))
+                    }) {
+                    Text(text = "ADD TO CALENDER", style = MaterialTheme.typography.labelLarge)
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -126,9 +123,8 @@ fun EventDetailScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                val timeLeft = Duration.between(ZonedDateTime.now(), eventItem.dateTime)
-                val daysLeft = timeLeft.toDays()
-                val hoursLeft = timeLeft.toHours()
+                val daysLeft = (viewModel::daysAndHoursLeft)(eventItem.dateTime).first
+                val hoursLeft = (viewModel::daysAndHoursLeft)(eventItem.dateTime).second
                 if (daysLeft >= 1) {
                     Text(
                         modifier = Modifier.fillMaxWidth(),
