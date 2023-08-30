@@ -24,7 +24,12 @@ onferences
 
 ## Installation
 
-Install the lastest version from the releases section.
+1. Take an android phone.
+2. Head to the releases section in this repo.
+3. Download the latest-release.apk
+4. Install the apk.
+5. Note: While installing, Google Play might throw a warning; in the dialog box, do not click 'OK', instead click on the dropdown option saying 'More info', now click on the button saying 'Install anyway' and only then the app will get installed.
+6. Open the app :)
     
 ## Building
 
