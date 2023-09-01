@@ -36,7 +36,7 @@ onferences
 1. Clone the project
 2. Open Android Studio IDE
 3. Go to File » New » Project from VCS
-4. Paste ``` https://github.com/beradeep/CollegeSearch.git ```
+4. Paste ``` https://github.com/beradeep/TechConferenceApp.git ```
 
 ## Tech Stack
 
