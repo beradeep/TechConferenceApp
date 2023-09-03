@@ -7,7 +7,6 @@
 - [x] Classification of events - live, upcoming, past
 - [x] Sort conferences based on time of occurance and name
 - [x] Search for conferences
-onferences
 - [x] Individual portrayal of an event details
 - [x] Search location on Google Maps
 - [x] Add event to Calender
