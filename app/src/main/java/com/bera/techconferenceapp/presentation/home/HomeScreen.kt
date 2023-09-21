@@ -31,11 +31,17 @@ import com.bera.techconferenceapp.presentation.events.live.LiveEvents
 import com.bera.techconferenceapp.presentation.events.past.PastEvents
 import com.bera.techconferenceapp.presentation.events.upcoming.UpcomingEvents
 import org.koin.androidx.compose.getViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun HomeScreen(navController: NavController, isDarkMode: Boolean, onModeToggle: () -> Unit) {
+fun HomeScreen(
+    navController: NavController,
+    isDarkMode: Boolean,
+    onModeToggle: () -> Unit,
+    viewModel: HomeViewModel = koinViewModel()
+) {
 
-    val viewModel = getViewModel<HomeViewModel>()
+    //val viewModel = getViewModel<HomeViewModel>()
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(Modifier.fillMaxSize()) {
 
@@ -56,21 +62,22 @@ fun HomeScreen(navController: NavController, isDarkMode: Boolean, onModeToggle: 
                         )
                     },
                     modifier = Modifier
-                        .requiredWidth(width-100.dp)
+                        .requiredWidth(width - 100.dp)
                         .padding(top = 10.dp, start = 10.dp, bottom = 10.dp),
                     keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Done),
                     keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
                     maxLines = 1
                 )
-                Box(modifier = Modifier
-                    .padding(10.dp),
+                Box(
+                    modifier = Modifier
+                        .padding(10.dp),
                     Alignment.Center
                 ) {
-                        ThemeSwitcher(
-                            darkTheme = isDarkMode,
-                            size = 40.dp,
-                            onClick = onModeToggle
-                        )
+                    ThemeSwitcher(
+                        darkTheme = isDarkMode,
+                        size = 40.dp,
+                        onClick = onModeToggle
+                    )
                 }
             }
             if (viewModel.searchText.value != "") {

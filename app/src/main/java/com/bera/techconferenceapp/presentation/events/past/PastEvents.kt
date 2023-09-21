@@ -19,13 +19,15 @@ import com.bera.techconferenceapp.presentation.events.common.EventType
 import com.bera.techconferenceapp.presentation.events.common.EventViewModel
 import com.bera.techconferenceapp.presentation.events.common.SortDropDown
 import org.koin.androidx.compose.getViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun PastEvents(
     modifier: Modifier = Modifier,
-    navController: NavController
+    navController: NavController,
+    viewModel: EventViewModel = koinViewModel()
 ) {
-    val viewModel = getViewModel<EventViewModel>()
+    //val viewModel = getViewModel<EventViewModel>()
     val state = viewModel.pastEventState
 
     Column(modifier = modifier.fillMaxWidth()) {
