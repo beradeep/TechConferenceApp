@@ -5,7 +5,7 @@
 
 ## Features
 - [x] Classification of events - live, upcoming, past
-- [x] Sort conferences based on time of occurance and name
+- [x] Sort conferences based on time of occurrence and name
 - [x] Search for conferences
 - [x] Individual portrayal of an event details
 - [x] Search location on Google Maps
@@ -19,7 +19,7 @@
 - [x] Only one api call per session
 - [x] In-memory caching of data
 - [x] Date-time data parsed considering time-zones
-- [x] Network availablilty handling
+- [x] Network availability handling
 
 ## Installation
 
