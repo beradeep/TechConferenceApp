@@ -8,8 +8,5 @@ import kotlinx.coroutines.flow.Flow
 class GetEventsUseCase(
     private val repository: EventRepository
 ) {
-
-    operator fun invoke(): Flow<Resource<List<EventItem>>> {
-        return repository.getAllEvents()
-    }
+    operator fun invoke(): Flow<Resource<List<EventItem>>> = repository.getAllEvents()
 }
